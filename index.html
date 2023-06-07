@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Basic UI Exercise" />
+  <meta name="keywords" content="HTML, CSS, JavaScript" />
+  <meta name="msapplication-tap-highlight" contentcordova run brpwser="no" />
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover"/>
+  <meta name="color-scheme" content="light dark" />
+
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+  <link rel="stylesheet" href="css/jqm.css" />
+  <link rel="stylesheet" href="css/index.css"/>
+
+  <style>
+  .panel-content {
+    padding: 0em;
+  }
+  </style>
+
+</head>
+
+<body>
+  <!--  START SPA HOME PAGE  -->
+  <div data-role="page" id="home">
+    <header data-role="header" data-position="fixed" data-theme="b">
+      <a href="JavaScript:void(0)" id="mainpage">
+        <img src="img/blood.png" alt="">
+      </a>
+      <h1 title="Home Page">Blood Donation App</h1>
+    </header>
+
+    <section data-role="content" data-theme="a" class="home_content">
+      <div class="container">
+        <div class="inner_container">
+          <div class="inner_content">
+            <h2>Welcome To Blood Donation Application</h2>
+            <a href="JavaScript:void(0)" id="donor_page_link" class="button">Go To Donor's Dashboard</a>
+            &nbsp;
+            <a href="JavaScript:void(0)" id="recipient_page_link" class="button">Go To Recipient's Dashboard</a>
+          </div>
+          <img src="img/blood-donation-icon.png">
+        </div>
+      </div>
+    </section>
+      
+    <footer data-role="footer" class="ui-bar" data-position="fixed" data-theme="b" >
+      <p>Blood Donation App Designs &copy; 2023</p>
+    </footer>
+  </div>
+  <!--  END SPA HOME PAGE  -->
+
+  <!--  START SPA Blood App PAGE  -->
+  <div data-role="page" id="donorspage">
+    <header data-role="header" data-position="fixed" data-theme="b">
+      <a href="JavaScript:void(0)" id="mainpage">
+        <img src="img/blood.png" alt="">
+      </a>
+      <h1 title="Home Page" id="home_link">Blood Donation App</h1>
+      <div class="user_menu">
+          <a href="JavaScript:void(0)" id="userlink" title="Admin">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="24" height="24"><path d="M16.043,14H7.957A4.963,4.963,0,0,0,3,18.957V24H21V18.957A4.963,4.963,0,0,0,16.043,14Z"/><circle cx="12" cy="6" r="6"/></svg>
+          </a>
+          <ul class="user-option-menu">
+            <li>
+              <a href="JavaScript:void(0)" class="button" id="deletelocaldata">Delete Local Data</a>
+            </li>
+            <li>
+              <a href="JavaScript:void(0)" class="button deleteclouddata">Delete Cloud Data</a>
+            </li>
+			<li>
+              <a href="JavaScript:void(0)" class="button deleteclouddataR">Delete Recipient Cloud Data</a>
+            </li>
+        </ul>
+      </div>
+    </header>
+
+    <section data-role="content" data-theme="a" class="home_content">
+      <div class="container">
+        <ul class="scan-menu">
+            <li>
+              <a href="JavaScript:void(0)" class="button" id="appointment_link">Appointment To Donate</a>
+            </li>
+            <li>
+              <a href="JavaScript:void(0)" class="button" id="donordata_link">Display Local Data For Donor</a>
+            </li>
+            <li>
+              <a href="JavaScript:void(0)" class="button" id="donorcertificate_link">Donor Certificate</a>
+            </li>
+            <li>
+              <a href="JavaScript:void(0)" class="button" id="compatibility_chart_link">Compatibility Chart</a>
+            </li>
+			<li>
+              <a href="JavaScript:void(0)" class="button" id="duploadtoCloud">Upload Cloud</a>
+            </li>
+			<li>
+              <a href="JavaScript:void(0)" class="button" id="donordata_cloud">Display Cloud Data Donor</a>
+            </li>
+        </ul>
+      </div>
+    </section>
+      
+    <footer data-role="footer" class="ui-bar" data-position="fixed" data-theme="b" >
+      <p>Blood Donation App Designs &copy; 2023</p>
+    </footer>
+  </div>
+  <!--  END SPA Blood App PAGE  -->
+
+  <!--  START SPA Blood App PAGE  -->
+  <div data-role="page" id="recipientpage">
+    <header data-role="header" data-position="fixed" data-theme="b">
+      <a href="JavaScript:void(0)" id="mainpage">
+        <img src="img/blood.png" alt="">
+      </a>
+      <h1 title="Home Page" id="home_link">Blood Donation App</h1>
+      <div class="user_menu">
+          <a href="JavaScript:void(0)" id="userlink" title="Admin">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="24" height="24"><path d="M16.043,14H7.957A4.963,4.963,0,0,0,3,18.957V24H21V18.957A4.963,4.963,0,0,0,16.043,14Z"/><circle cx="12" cy="6" r="6"/></svg>
+          </a>
+          <ul class="user-option-menu">
+            <li>
+              <a href="JavaScript:void(0)" class="button" id="deletelocaldata">Delete Local Data</a>
+            </li>
+            <li>
+              <a href="JavaScript:void(0)" class="button deleteclouddata">Delete Cloud Data</a>
+            </li>
+        </ul>
+      </div>
+    </header>
+
+    <section data-role="content" data-theme="a" class="home_content">
+      <div class="container">
+        <ul class="scan-menu">
+            <li>
+              <a href="JavaScript:void(0)" class="button" id="requestblood_link">Request To Receive</a>
+            </li>
+            <li>
+              <a href="JavaScript:void(0)" class="button" id="recipientdata_link">Display Local Data For Recipient</a>
+            </li>
+            <li>
+              <a href="JavaScript:void(0)" class="button" id="ruploadtoCloud">Upload Cloud</a>
+            </li>
+			<li>
+              <a href="JavaScript:void(0)" class="button" id="recidata_cloud">Display Cloud Data Recipient</a>
+            </li>
+            <li>
+              <a href="JavaScript:void(0)" class="button" id="compatibility_chart_link">Compatibility Chart</a>
+            </li>
+			
+        </ul>
+      </div>
+    </section>
+      
+    <footer data-role="footer" class="ui-bar" data-position="fixed" data-theme="b" >
+      <p>Blood Donation App Designs &copy; 2023</p>
+    </footer>
+  </div>
+  <!--  END SPA Blood App PAGE  -->
+
+  <!--  START SPA Blood App PAGE  -->
+  <div data-role="page" id="appointment">
+    <header data-role="header" data-position="fixed" data-theme="b">
+      <a href="JavaScript:void(0)" id="mainpage">
+        <img src="img/blood.png" alt="">
+      </a>
+      <h1 title="Home Page" id="home_link">Blood Donation App</h1>
+      <div class="user_menu">
+          <a href="JavaScript:void(0)" id="userlink" title="Admin">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="24" height="24"><path d="M16.043,14H7.957A4.963,4.963,0,0,0,3,18.957V24H21V18.957A4.963,4.963,0,0,0,16.043,14Z"/><circle cx="12" cy="6" r="6"/></svg>
+          </a>
+          <ul class="user-option-menu">
+              <li>
+                <a href="JavaScript:void(0)" class="button" id="deletelocaldata">Delete Local Data</a>
+              </li>
+              <li>
+                <a href="JavaScript:void(0)" class="button deleteclouddata">Delete Cloud Data</a>
+              </li>
+          </ul>
+          <div class="overlay" id="admin">
+            <div class="custom-alert">
+              <div class="popup_header">
+                <h3>Confirmation Dialog</h3>
+                <a href="JavaScript:void(0)">X</a>
+              </div>
+              <div class="popup_body">
+                  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 111.54" width="20px" height="20px"><defs><style>.cls-1{fill:#1a1a1a;}.cls-2{fill:#ffef11;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"/><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"/><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"/></svg>
+                  Remove Records From Local Storage?
+              </div>
+              <div class="popup-footer">
+                <a href="JavaScript:void(0)" id="adminconfirm">Confirm</a>
+                <a href="JavaScript:void(0)" id="admindecline">Decline</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </header>
+
+    <section data-role="content" data-theme="a" class="home_content">
+      <h2 class="page_heading">Make Your Blood Donate Appointment Here</h2>
+      <div class="overlay">
+        <div class="custom-alert">
+          <div class="popup_header">
+            <h3>Confirmation Dialog</h3>
+            <a href="JavaScript:void(0)">X</a>
+          </div>
+          <div class="popup_body">
+              <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 111.54" width="20px" height="20px"><defs><style>.cls-1{fill:#1a1a1a;}.cls-2{fill:#ffef11;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"/><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"/><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"/></svg>
+              Store Record in Local Storage?
+          </div>
+          <div class="popup-footer">
+            <a href="JavaScript:void(0)" id="confirm">Confirm</a>
+            <a href="JavaScript:void(0)" id="decline">Decline</a>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <form action="javascript:processValidForm(this)" name="myForm" id="myForm" >
+           <label for="fullname">Name:<span>*</span></label>
+           <input type="text" name="fullname" id="fullname" placeholder="Enter Your Name" required />
+
+           <label for="email">Email:<span>*</span></label>
+           <input type="email" name="email" id="email" placeholder="Enter Your Email" required/>
+
+           <label for="mobile">Mobile:<span>*</span></label>
+           <input type="text" name="mobile" id="mobile" minlength="9" maxlength="11" placeholder="Enter Your Mobile Number" required/>
+
+           <label for="address">Address:<span>*</span></label>
+           <textarea id="address" name="address" rows="4" cols="50" required></textarea>
+
+           <label for="bloodgroup">Blood Group:<span>*</span></label>
+           <select name="bloodgroup" id="bloodgroup" required>
+              <option value="">Choose Your Blood Group</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+
+            <label for="past">Did You Donate In The Past?:<span>*</span></label>
+            <select name="past" id="past" required>
+              <option value="">Choose Your Answer</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+
+            <label for="diesease">Do You Have Any Diesease?:<span>*</span></label>
+            <select name="diesease" id="diesease" required>
+              <option value="">Choose Your Answer</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+
+             <label style="display:none;" class="hidden_class" for="specify">Specify Your Diesease:</label>
+             <input style="display:none;" type="text" name="specify" id="specify" placeholder="Specify If Any" />
+
+             <label for="bloodbank">Choose City:<span>*</span></label>
+             <select name="bloodbank" id="bloodbank" required>
+                <option value="">Choose City</option>
+                <option value="SYD">SYD</option>
+                <option value="MEL">MEL</option>
+              </select>
+
+              <label for="banklocation">Select the Near by Blood Bank Location:<span>*</span></label>
+              <select name="banklocation" id="banklocation" required>
+                <option value="">Choose Near By Location</option>
+                <option value="A" class="syd">Blood Bank A</option>
+                <option value="B" class="syd">Blood Bank B</option>
+                <option value="C" class="syd">Blood Bank C</option>
+                <option value="D" class="syd">Blood Bank D</option>
+                <option value="E" class="mel">Blood Bank E</option>
+                <option value="F" class="mel">Blood Bank F</option>
+                <option value="G" class="mel">Blood Bank G</option>
+              </select>
+
+           <button type="submit" id="store-data">Submit</button>
+        </form>
+      </div>
+    </section>
+      
+    <footer data-role="footer" class="ui-bar" data-position="fixed" data-theme="b">
+      <p>Blood Donation App Designs &copy; 2023</p>
+    </footer>
+  </div>
+  <!--  END SPA Blood App PAGE  -->
+
+  <!--  START SPA Blood App PAGE  -->
+  <div data-role="page" id="requestblood">
+    <header data-role="header" data-position="fixed" data-theme="b">
+      <a href="JavaScript:void(0)" id="mainpage">
+        <img src="img/blood.png" alt="">
+      </a>
+      <h1 title="Home Page" id="home_link">Blood Donation App</h1>
+      <div class="user_menu">
+          <a href="JavaScript:void(0)" id="userlink" title="Admin">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="24" height="24"><path d="M16.043,14H7.957A4.963,4.963,0,0,0,3,18.957V24H21V18.957A4.963,4.963,0,0,0,16.043,14Z"/><circle cx="12" cy="6" r="6"/></svg>
+          </a>
+          <ul class="user-option-menu">
+              <li>
+                <a href="JavaScript:void(0)" class="button" id="deletelocaldata">Delete Local Data</a>
+              </li>
+              <li>
+                <a href="JavaScript:void(0)" class="button deleteclouddata">Delete Cloud Data</a>
+              </li>
+          </ul>
+          <div class="overlay" id="admin">
+            <div class="custom-alert">
+              <div class="popup_header">
+                <h3>Confirmation Dialog</h3>
+                <a href="JavaScript:void(0)">X</a>
+              </div>
+              <div class="popup_body">
+                  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 111.54" width="20px" height="20px"><defs><style>.cls-1{fill:#1a1a1a;}.cls-2{fill:#ffef11;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"/><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"/><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"/></svg>
+                  Remove Records From Local Storage?
+              </div>
+              <div class="popup-footer">
+                <a href="JavaScript:void(0)" id="adminconfirm">Confirm</a>
+                <a href="JavaScript:void(0)" id="admindecline">Decline</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </header>
+
+    <section data-role="content" data-theme="a" class="home_content">
+      <h2 class="page_heading">Make a Request To Receive Blood</h2>
+      <div class="overlay">
+        <div class="custom-alert">
+          <div class="popup_header">
+            <h3>Confirmation Dialog</h3>
+            <a href="JavaScript:void(0)">X</a>
+          </div>
+          <div class="popup_body">
+              <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 111.54" width="20px" height="20px"><defs><style>.cls-1{fill:#1a1a1a;}.cls-2{fill:#ffef11;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"/><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"/><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"/></svg>
+              Store Record in Local Storage?
+          </div>
+          <div class="popup-footer">
+            <a href="JavaScript:void(0)" id="confirm">Confirm</a>
+            <a href="JavaScript:void(0)" id="decline">Decline</a>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+          <form action="javascript:processValidFormnew(this)" name="myFormnew" id="myFormnew" >
+             <label for="fullnamenew">Name:<span>*</span></label>
+             <input type="text" name="fullnamenew" id="fullnamenew" placeholder="Enter Your Name" required />
+
+             <label for="emailnew">Email:<span>*</span></label>
+             <input type="email" name="emailnew" id="emailnew" placeholder="Enter Your Email" required/>
+
+             <label for="mobilenew">Mobile:<span>*</span></label>
+             <input type="Text" name="mobilenew" id="mobilenew" minlength="9" maxlength="11" placeholder="Enter Your Mobile Number" required/>
+
+             <label for="bloodgroupnew">Blood Group You Want:<span>*</span></label>
+             <select name="bloodgroupnew" id="bloodgroupnew" required>
+                <option value="">Choose Your Blood Group</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
+
+             <button type="submit" id="store-datanew">Submit</button>
+          </form>
+      </div>
+    </section>
+      
+    <footer data-role="footer" class="ui-bar" data-position="fixed" data-theme="b">
+      <p>Blood Donation App Designs &copy; 2023</p>
+    </footer>
+  </div>
+  <!--  END SPA Blood App PAGE  -->
+
+  <!--  START SPA Blood Donor PAGE  -->
+  <div data-role="page" id="donordata">
+    <header data-role="header" data-position="fixed" data-theme="b">
+      <a href="JavaScript:void(0)" id="mainpage">
+        <img src="img/blood.png" alt="">
+      </a>
+      <h1 title="Home Page" id="home_link">Blood Donation App</h1>
+      <div class="user_menu">
+          <a href="JavaScript:void(0)" id="userlink" title="Admin">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="24" height="24"><path d="M16.043,14H7.957A4.963,4.963,0,0,0,3,18.957V24H21V18.957A4.963,4.963,0,0,0,16.043,14Z"/><circle cx="12" cy="6" r="6"/></svg>
+          </a>
+          <ul class="user-option-menu">
+              <li>
+                <a href="JavaScript:void(0)" class="button" id="deletelocaldata">Delete Local Data</a>
+              </li>
+              <li>
+                <a href="JavaScript:void(0)" class="button deleteclouddata">Delete Cloud Data</a>
+              </li>
+          </ul>
+          <div class="overlay" id="admin">
+            <div class="custom-alert">
+              <div class="popup_header">
+                <h3>Confirmation Dialog</h3>
+                <a href="JavaScript:void(0)">X</a>
+              </div>
+              <div class="popup_body">
+                  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 111.54" width="20px" height="20px"><defs><style>.cls-1{fill:#1a1a1a;}.cls-2{fill:#ffef11;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"/><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"/><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"/></svg>
+                  Remove Records From Local Storage?
+              </div>
+              <div class="popup-footer">
+                <a href="JavaScript:void(0)" id="adminconfirm">Confirm</a>
+                <a href="JavaScript:void(0)" id="admindecline">Decline</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </header>
+
+    <section data-role="content" data-theme="a" class="home_content">
+      <h2 class="page_heading">Local Data For Donor</h2>
+      <div class="overlay">
+        <div class="custom-alert">
+          <div class="popup_header">
+            <h3>Confirmation Dialog</h3>
+            <a href="JavaScript:void(0)">X</a>
+          </div>
+          <div class="popup_body">
+              <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 111.54" width="20px" height="20px"><defs><style>.cls-1{fill:#1a1a1a;}.cls-2{fill:#ffef11;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"/><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"/><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"/></svg>
+              Store Record in Local Storage?
+          </div>
+          <div class="popup-footer">
+            <a href="JavaScript:void(0)" id="confirm">Confirm</a>
+            <a href="JavaScript:void(0)" id="decline">Decline</a>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="my-data">
+          <table id="table"></table>
+          <div id="responsive-view"></div>
+        </div>
+        <h2  class="no-record">No Record Found <a href="javascript:void(0)" id="mainpage">Go To Donor's Page</a> </h2>
+      </div>
+    </section>
+      
+    <footer data-role="footer" class="ui-bar" data-position="fixed" data-theme="b">
+      <p>Blood Donation App Designs &copy; 2023</p>
+    </footer>
+  </div>
+  <!--  END SPA Blood Donor PAGE  -->
+<!--  END SPA Blood App PAGE  -->
+
+  <!--  START SPA Blood Donor PAGE  -->
+  <div data-role="page" id="donorclouddata">
+    <header data-role="header" data-position="fixed" data-theme="b">
+      <a href="JavaScript:void(0)" id="mainpage">
+        <img src="img/blood.png" alt="">
+      </a>
+      <h1 title="Home Page" id="home_link">Blood Donation App</h1>
+      <div class="user_menu">
+          <a href="JavaScript:void(0)" id="userlink" title="Admin">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="24" height="24"><path d="M16.043,14H7.957A4.963,4.963,0,0,0,3,18.957V24H21V18.957A4.963,4.963,0,0,0,16.043,14Z"/><circle cx="12" cy="6" r="6"/></svg>
+          </a>
+          <ul class="user-option-menu">
+              <li>
+                <a href="JavaScript:void(0)" class="button" id="deletelocaldata">Delete Local Data</a>
+              </li>
+              <li>
+                <a href="JavaScript:void(0)" class="button deleteclouddata">Delete Cloud Data</a>
+              </li>
+          </ul>
+          <div class="overlay" id="admin">
+            <div class="custom-alert">
+              <div class="popup_header">
+                <h3>Confirmation Dialog</h3>
+                <a href="JavaScript:void(0)">X</a>
+              </div>
+              <div class="popup_body">
+                  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 111.54" width="20px" height="20px"><defs><style>.cls-1{fill:#1a1a1a;}.cls-2{fill:#ffef11;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"/><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"/><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"/></svg>
+                  Remove Records From Local Storage?
+              </div>
+              <div class="popup-footer">
+                <a href="JavaScript:void(0)" id="adminconfirm">Confirm</a>
+                <a href="JavaScript:void(0)" id="admindecline">Decline</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </header>
+
+    <section data-role="content" data-theme="a" class="home_content">
+      <h2 class="page_heading">Cloud Data For Donor</h2>
+      <div class="overlay">
+        <div class="custom-alert">
+          <div class="popup_header">
+            <h3>Confirmation Dialog</h3>
+            <a href="JavaScript:void(0)">X</a>
+          </div>
+          <div class="popup_body">
+              <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 111.54" width="20px" height="20px"><defs><style>.cls-1{fill:#1a1a1a;}.cls-2{fill:#ffef11;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"/><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"/><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"/></svg>
+              Store Record in Local Storage?
+          </div>
+          <div class="popup-footer">
+            <a href="JavaScript:void(0)" id="confirm">Confirm</a>
+            <a href="JavaScript:void(0)" id="decline">Decline</a>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="my-data">
+          <table id="cloud-table"></table>
+          <div id="cloud-responsive-view"></div>
+        </div>
+        <h2  class="no-record">No Record Found <a href="javascript:void(0)" id="mainpage">Go To Donor's Page</a> </h2>
+      </div>
+    </section>
+      
+    <footer data-role="footer" class="ui-bar" data-position="fixed" data-theme="b">
+      <p>Blood Donation App Designs &copy; 2023</p>
+    </footer>
+  </div>
+  <!--  END SPA Blood Donor PAGE  -->
+  <!--  START SPA Blood recipient PAGE  -->
+  <div data-role="page" id="recipientdata">
+    <header data-role="header" data-position="fixed" data-theme="b">
+      <a href="JavaScript:void(0)" id="mainpage">
+        <img src="img/blood.png" alt="">
+      </a>
+      <h1 title="Home Page" id="home_link">Blood Donation App</h1>
+      <div class="user_menu">
+          <a href="JavaScript:void(0)" id="userlink" title="Admin">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="24" height="24"><path d="M16.043,14H7.957A4.963,4.963,0,0,0,3,18.957V24H21V18.957A4.963,4.963,0,0,0,16.043,14Z"/><circle cx="12" cy="6" r="6"/></svg>
+          </a>
+          <ul class="user-option-menu">
+              <li>
+                <a href="JavaScript:void(0)" class="button" id="deletelocaldata">Delete Local Data</a>
+              </li>
+              <li>
+                <a href="JavaScript:void(0)" class="button deleteclouddata">Delete Cloud Data</a>
+              </li>
+          </ul>
+          <div class="overlay" id="admin">
+            <div class="custom-alert">
+              <div class="popup_header">
+                <h3>Confirmation Dialog</h3>
+                <a href="JavaScript:void(0)">X</a>
+              </div>
+              <div class="popup_body">
+                  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 111.54" width="20px" height="20px"><defs><style>.cls-1{fill:#1a1a1a;}.cls-2{fill:#ffef11;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"/><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"/><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"/></svg>
+                  Remove Records From Local Storage?
+              </div>
+              <div class="popup-footer">
+                <a href="JavaScript:void(0)" id="adminconfirm">Confirm</a>
+                <a href="JavaScript:void(0)" id="admindecline">Decline</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </header>
+
+    <section data-role="content" data-theme="a" class="home_content">
+      <h2 class="page_heading">Local Data For Recipient</h2>
+      <div class="overlay">
+        <div class="custom-alert">
+          <div class="popup_header">
+            <h3>Confirmation Dialog</h3>
+            <a href="JavaScript:void(0)">X</a>
+          </div>
+          <div class="popup_body">
+              <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 111.54" width="20px" height="20px"><defs><style>.cls-1{fill:#1a1a1a;}.cls-2{fill:#ffef11;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"/><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"/><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"/></svg>
+              Store Record in Local Storage?
+          </div>
+          <div class="popup-footer">
+            <a href="JavaScript:void(0)" id="confirm">Confirm</a>
+            <a href="JavaScript:void(0)" id="decline">Decline</a>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+          <div class="my-datanew">
+            <table id="tablenew"></table>
+            <div id="responsive-viewnew"></div>
+          </div>
+          <h2  class="no-recordnew">No Record Found <a href="javascript:void(0)" id="requestblood_link">Go To Recipient's Page</a> </h2>
+        </div>
+    </section>
+      
+    <footer data-role="footer" class="ui-bar" data-position="fixed" data-theme="b">
+      <p>Blood Donation App Designs &copy; 2023</p>
+    </footer>
+  </div>
+  <!--  END SPA Blood recipient PAGE  -->
+  <!--  START SPA Blood recipient PAGE  -->
+  <div data-role="page" id="cloudrecipientdata">
+    <header data-role="header" data-position="fixed" data-theme="b">
+      <a href="JavaScript:void(0)" id="mainpage">
+        <img src="img/blood.png" alt="">
+      </a>
+      <h1 title="Home Page" id="home_link">Blood Donation App</h1>
+      <div class="user_menu">
+          <a href="JavaScript:void(0)" id="userlink" title="Admin">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="24" height="24"><path d="M16.043,14H7.957A4.963,4.963,0,0,0,3,18.957V24H21V18.957A4.963,4.963,0,0,0,16.043,14Z"/><circle cx="12" cy="6" r="6"/></svg>
+          </a>
+          <ul class="user-option-menu">
+              <li>
+                <a href="JavaScript:void(0)" class="button" id="deletelocaldata">Delete Local Data</a>
+              </li>
+              <li>
+                <a href="JavaScript:void(0)" class="button deleteclouddata">Delete Cloud Data</a>
+              </li>
+          </ul>
+          <div class="overlay" id="admin">
+            <div class="custom-alert">
+              <div class="popup_header">
+                <h3>Confirmation Dialog</h3>
+                <a href="JavaScript:void(0)">X</a>
+              </div>
+              <div class="popup_body">
+                  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 111.54" width="20px" height="20px"><defs><style>.cls-1{fill:#1a1a1a;}.cls-2{fill:#ffef11;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"/><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"/><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"/></svg>
+                  Remove Records From Local Storage?
+              </div>
+              <div class="popup-footer">
+                <a href="JavaScript:void(0)" id="adminconfirm">Confirm</a>
+                <a href="JavaScript:void(0)" id="admindecline">Decline</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </header>
+
+    <section data-role="content" data-theme="a" class="home_content">
+      <h2 class="page_heading">Cloud Data For Recipient</h2>
+      <div class="overlay">
+        <div class="custom-alert">
+          <div class="popup_header">
+            <h3>Confirmation Dialog</h3>
+            <a href="JavaScript:void(0)">X</a>
+          </div>
+          <div class="popup_body">
+              <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 111.54" width="20px" height="20px"><defs><style>.cls-1{fill:#1a1a1a;}.cls-2{fill:#ffef11;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"/><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"/><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"/></svg>
+              Store Record in Local Storage?
+          </div>
+          <div class="popup-footer">
+            <a href="JavaScript:void(0)" id="confirm">Confirm</a>
+            <a href="JavaScript:void(0)" id="decline">Decline</a>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+          <div class="my-datanew">
+            <table id="cloud-rtable"></table>
+            <div id="cloud-responsive-viewr"></div>
+          </div>
+          <h2  class="no-recordnew">No Record Found <a href="javascript:void(0)" id="requestblood_link">Go To Recipient's Page</a> </h2>
+        </div>
+    </section>
+      
+    <footer data-role="footer" class="ui-bar" data-position="fixed" data-theme="b">
+      <p>Blood Donation App Designs &copy; 2023</p>
+    </footer>
+  </div>
+  <!--  END SPA Blood recipient PAGE  -->
+
+  <!--  START SPA Donor Certificate PAGE  -->
+  <div data-role="page" id="donorcertificate">
+    <header data-role="header" data-position="fixed" data-theme="b">
+      <a href="JavaScript:void(0)" id="mainpage">
+        <img src="img/blood.png" alt="">
+      </a>
+      <h1 title="Home Page" id="home_link">Blood Donation App</h1>
+      <div class="user_menu">
+          <a href="JavaScript:void(0)" id="userlink" title="Admin">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="24" height="24"><path d="M16.043,14H7.957A4.963,4.963,0,0,0,3,18.957V24H21V18.957A4.963,4.963,0,0,0,16.043,14Z"/><circle cx="12" cy="6" r="6"/></svg>
+          </a>
+          <ul class="user-option-menu">
+              <li>
+                <a href="JavaScript:void(0)" class="button" id="deletelocaldata">Delete Local Data</a>
+              </li>
+              <li>
+                <a href="JavaScript:void(0)" class="button deleteclouddata">Delete Cloud Data</a>
+              </li>
+          </ul>
+          <div class="overlay" id="admin">
+            <div class="custom-alert">
+              <div class="popup_header">
+                <h3>Confirmation Dialog</h3>
+                <a href="JavaScript:void(0)">X</a>
+              </div>
+              <div class="popup_body">
+                  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 111.54" width="20px" height="20px"><defs><style>.cls-1{fill:#1a1a1a;}.cls-2{fill:#ffef11;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"/><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"/><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"/></svg>
+                  Remove Records From Local Storage?
+              </div>
+              <div class="popup-footer">
+                <a href="JavaScript:void(0)" id="adminconfirm">Confirm</a>
+                <a href="JavaScript:void(0)" id="admindecline">Decline</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </header>
+
+    <section data-role="content" data-theme="a" class="home_content">
+      <h2 class="page_heading">Donor's Certificate</h2>
+      <div class="container">
+        <img src="img/Blood-donation-certificate.png" alt="">
+      </div>
+    </section>
+      
+    <footer data-role="footer" class="ui-bar" data-position="fixed" data-theme="b">
+      <p>Blood Donation App Designs &copy; 2023</p>
+    </footer>
+  </div>
+  <!--  END SPA Donor Certificate PAGE  -->
+
+  <!--  START SPA Donor Certificate PAGE  -->
+  <div data-role="page" id="compatibilitychart">
+    <header data-role="header" data-position="fixed" data-theme="b">
+      <a href="JavaScript:void(0)" id="mainpage">
+        <img src="img/blood.png" alt="">
+      </a>
+      <h1 title="Home Page" id="home_link">Blood Donation App</h1>
+      <div class="user_menu">
+          <a href="JavaScript:void(0)" id="userlink" title="Admin">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="24" height="24"><path d="M16.043,14H7.957A4.963,4.963,0,0,0,3,18.957V24H21V18.957A4.963,4.963,0,0,0,16.043,14Z"/><circle cx="12" cy="6" r="6"/></svg>
+          </a>
+          <ul class="user-option-menu">
+              <li>
+                <a href="JavaScript:void(0)" class="button" id="deletelocaldata">Delete Local Data</a>
+              </li>
+              <li>
+                <a href="JavaScript:void(0)" class="button deleteclouddata">Delete Cloud Data</a>
+              </li>
+          </ul>
+          <div class="overlay" id="admin">
+            <div class="custom-alert">
+              <div class="popup_header">
+                <h3>Confirmation Dialog</h3>
+                <a href="JavaScript:void(0)">X</a>
+              </div>
+              <div class="popup_body">
+                  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 111.54" width="20px" height="20px"><defs><style>.cls-1{fill:#1a1a1a;}.cls-2{fill:#ffef11;fill-rule:evenodd;}</style></defs><title>caution</title><path class="cls-1" d="M2.35,84.42,45.28,10.2l.17-.27h0A23,23,0,0,1,52.5,2.69,17,17,0,0,1,61.57,0a16.7,16.7,0,0,1,9.11,2.69,22.79,22.79,0,0,1,7,7.26q.19.32.36.63l42.23,73.34.24.44h0a22.48,22.48,0,0,1,2.37,10.19,17.63,17.63,0,0,1-2.17,8.35,15.94,15.94,0,0,1-6.93,6.6c-.19.1-.39.18-.58.26a21.19,21.19,0,0,1-9.11,1.75v0H17.61c-.22,0-.44,0-.65,0a18.07,18.07,0,0,1-6.2-1.15A16.42,16.42,0,0,1,3,104.24a17.53,17.53,0,0,1-3-9.57,23,23,0,0,1,1.57-8.74,7.66,7.66,0,0,1,.77-1.51Z"/><path class="cls-2" d="M9,88.75,52.12,14.16c5.24-8.25,13.54-8.46,18.87,0l42.43,73.69c3.39,6.81,1.71,16-9.33,15.77H17.61C10.35,103.8,5.67,97.43,9,88.75Z"/><path class="cls-1" d="M57.57,82.69A5.48,5.48,0,0,1,61,81.11a5.66,5.66,0,0,1,4.42,1.66,5.53,5.53,0,0,1,1.62,3.54A5.6,5.6,0,0,1,67,87.72a6,6,0,0,1-.42,1.34,5.53,5.53,0,0,1-2.92,2.84,5.79,5.79,0,0,1-4.57-.1,5.51,5.51,0,0,1-2.81-2.94,5.31,5.31,0,0,1-.36-1.27,5.9,5.9,0,0,1-.06-1.32h0a6.45,6.45,0,0,1,.57-2,4.6,4.6,0,0,1,1.14-1.56Zm8.15-10.24c-.19,4.79-8.31,4.8-8.49,0-.82-8.21-2.92-27.7-2.86-35.42.07-2.38,2-3.78,4.56-4.32a11.19,11.19,0,0,1,2.49-.24,11.77,11.77,0,0,1,2.5.25c2.61.55,4.65,2,4.65,4.44v.24L65.72,72.45Z"/></svg>
+                  Remove Records From Local Storage?
+              </div>
+              <div class="popup-footer">
+                <a href="JavaScript:void(0)" id="adminconfirm">Confirm</a>
+                <a href="JavaScript:void(0)" id="admindecline">Decline</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </header>
+
+    <section data-role="content" data-theme="a" class="home_content">
+      <h2 class="page_heading">Compatibility Chart</h2>
+      <div class="container">
+        <img src="img/DonorRecipient-Chart.jpeg">
+      </div>
+    </section>
+      
+    <footer data-role="footer" class="ui-bar" data-position="fixed" data-theme="b">
+      <p>Blood Donation App Designs &copy; 2023</p>
+    </footer>
+  </div>
+  <!--  END SPA Donor Certificate PAGE  -->
+
+
+
+<script src="js/jqueryForMobile.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/jquery.mobile-1.4.5.js"></script>
+<script src="js/QR-Code-min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
